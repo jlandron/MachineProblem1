@@ -4966,6 +4966,31 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &329890836 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2674097985350442234, guid: 0c127bcb8c885e94fb0c8f7dbe2677c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 7501515731269130312}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &329890837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329890836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 905d70a7c8924ea45859a4e894faf1d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eggPrefab: {fileID: 8691275113126348353, guid: ba3230b44897c5a498e87b9ad5ca716b,
+    type: 3}
+  textMesh: {fileID: 1936538730}
+  fireRateText: {fileID: 1601233359}
+  fireRateSelector: {fileID: 302840617}
+  spawningBar: {fileID: 2122531588}
+  maxSpawnSelector: {fileID: 1231572583}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -5246,8 +5271,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 693764361}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.7999878, y: 1.7999878, z: 30}
-  m_LocalScale: {x: 3, y: 2.85, z: 1}
+  m_LocalPosition: {x: 3.25, y: -0.37, z: 30}
+  m_LocalScale: {x: 2.94, y: 2.7359998, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -6282,18 +6307,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1907855402 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5878043695193380380, guid: 0c127bcb8c885e94fb0c8f7dbe2677c3,
-    type: 3}
-  m_PrefabInstance: {fileID: 7501515731269130312}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 905d70a7c8924ea45859a4e894faf1d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1936538728
 GameObject:
   m_ObjectHideFlags: 0
@@ -6569,7 +6582,7 @@ PrefabInstance:
         type: 3}
       propertyPath: eggSpawner
       value: 
-      objectReference: {fileID: 1907855402}
+      objectReference: {fileID: 329890837}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fd7fd85fe3d5b94f88560dfe66722cf, type: 3}
 --- !u!1001 &7501515731269130312
@@ -6675,5 +6688,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5878043695193380380, guid: 0c127bcb8c885e94fb0c8f7dbe2677c3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0c127bcb8c885e94fb0c8f7dbe2677c3, type: 3}

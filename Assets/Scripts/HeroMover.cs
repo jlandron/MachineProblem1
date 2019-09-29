@@ -20,6 +20,9 @@ public class HeroMover : MonoBehaviour {
     private float _minY;
     private float _maxY;
 
+    private float _multipleBounceDelay = 0.001f;
+    private float _timeSinceLastBouce = 0f;
+
 
     // Start is called before the first frame update
     void Start( ) {
@@ -44,15 +47,19 @@ public class HeroMover : MonoBehaviour {
         BouceOffWalls( );
     }
     private void BouceOffWalls( ) {
-        if( transform.position.x >= _maxX || transform.position.x <= _minX ) {
-            transform.up = new Vector3( -transform.up.x,
-                                       transform.up.y,
-                                       transform.up.z );
-        }
-        if( transform.position.y >= _maxY || transform.position.y <= _minY ) {
-            transform.up = new Vector3( transform.up.x,
-                                       -transform.up.y,
-                                       transform.up.z );
+        _timeSinceLastBouce += Time.deltaTime;
+        if( _timeSinceLastBouce > _multipleBounceDelay ) {
+            if( transform.position.x >= _maxX || transform.position.x <= _minX ) {
+                transform.up = new Vector3( -transform.up.x,
+                                           transform.up.y,
+                                           transform.up.z );
+            }
+            if( transform.position.y >= _maxY || transform.position.y <= _minY ) {
+                transform.up = new Vector3( transform.up.x,
+                                           -transform.up.y,
+                                           transform.up.z );
+            }
+            _timeSinceLastBouce = 0f;
         }
     }
     private void MoveForward( ) {
@@ -61,8 +68,7 @@ public class HeroMover : MonoBehaviour {
     private void GetMouseInput( ) {
         float angle = Input.GetAxis( "Fire1" ) * ( _rotationSpeed * Time.deltaTime );
         angle -= Input.GetAxis( "Fire2" ) * ( _rotationSpeed * Time.deltaTime );
-        transform.Rotate( transform.forward,
-                         Input.GetAxis( "Fire1" ) * ( _rotationSpeed * Time.deltaTime ) );
+        transform.Rotate( transform.forward, angle );
     }
     private void GetKeyboardInput( ) {
         _speed += ( 0.5f * Input.GetAxis( "Vertical" ) );
