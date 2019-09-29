@@ -23,11 +23,10 @@ public class HeroMover : MonoBehaviour {
     private float _multipleBounceDelay = 0.001f;
     private float _timeSinceLastBouce = 0f;
 
-    private void Awake( ) {
-        eggSpawner = FindObjectOfType<EggSpawner>( );
-    }
     // Start is called before the first frame update
     void Start( ) {
+        eggSpawner = FindObjectOfType<EggSpawner>( );
+
         transform.position = new Vector3( 0, 0, 10 );
         transform.rotation = new Quaternion( 0, 0, 0, 0 );
 

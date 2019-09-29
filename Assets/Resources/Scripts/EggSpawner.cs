@@ -5,7 +5,7 @@ public class EggSpawner : MonoBehaviour {
 
     [Header( "Prefabs" )]
     [SerializeField]
-    private EggBehavior eggPrefab = null;
+    private GameObject eggPrefab;
     [Header( "Text output" )]
     public Text textMesh = null;
     public Text fireRateText = null;
@@ -19,9 +19,14 @@ public class EggSpawner : MonoBehaviour {
     private float _timeSinceLastEggSpawned = 0;
     private float _eggCount = 0;
 
-    private void Awake( ) {
+    private void Start( ) {
         if( eggPrefab == null ) {
-            eggPrefab = Resources.Load<EggBehavior>( "Prefabs/Egg" );
+            eggPrefab = Resources.Load( "Prefabs/Egg" ) as GameObject ;
+            if(eggPrefab == null ) {
+                Debug.Log( "Failed to Load egg prefab" );
+            } else {
+                Debug.Log( "Loaded prefab" );
+            }
         }
 
         Text[] sceneTexts = Resources.FindObjectsOfTypeAll<Text>( );
@@ -32,7 +37,6 @@ public class EggSpawner : MonoBehaviour {
                 fireRateText = text;
             }
         }
-
         Slider[] sceneSliders = Resources.FindObjectsOfTypeAll<Slider>( );
         foreach( Slider slider in sceneSliders ) {
             if( slider.gameObject.name == "FireRateSelector" ) {
@@ -43,9 +47,6 @@ public class EggSpawner : MonoBehaviour {
                 maxSpawnSelector = slider;
             }
         }
-    }
-    private void Start( ) {
-        
 
         fireRateSelector.maxValue = 1f;
         fireRateSelector.minValue = 0.001f;
