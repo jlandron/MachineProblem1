@@ -5,29 +5,47 @@ public class EggSpawner : MonoBehaviour {
 
     [Header( "Prefabs" )]
     [SerializeField]
-    private EggBehavior eggPrefab;
+    private EggBehavior eggPrefab = null;
     [Header( "Text output" )]
-    [SerializeField]
-    private Text textMesh;
-    [SerializeField]
-    private Text fireRateText;
-    [Header("Sliders")]
-    [SerializeField]
-    private Slider fireRateSelector;
-    [SerializeField]
-    private Slider spawningBar;
-    [SerializeField]
-    private Slider maxSpawnSelector;
-    
+    public Text textMesh = null;
+    public Text fireRateText = null;
+    [Header( "Sliders" )]
+    public Slider fireRateSelector = null;
+    public Slider spawningBar = null;
+    public Slider maxSpawnSelector = null;
+
     private float _maxEggs;
     private float _cooldown;
     private float _timeSinceLastEggSpawned = 0;
     private float _eggCount = 0;
 
-    private void Start( ) {
+    private void Awake( ) {
         if( eggPrefab == null ) {
-            eggPrefab = Resources.Load( "Prefabs/Egg" ) as EggBehavior;
+            eggPrefab = Resources.Load<EggBehavior>( "Prefabs/Egg" );
         }
+
+        Text[] sceneTexts = Resources.FindObjectsOfTypeAll<Text>( );
+        foreach( Text text in sceneTexts ) {
+            if( text.gameObject.name == "Text" ) {
+                textMesh = text;
+            } else if( text.gameObject.name == "FireRateText" ) {
+                fireRateText = text;
+            }
+        }
+
+        Slider[] sceneSliders = Resources.FindObjectsOfTypeAll<Slider>( );
+        foreach( Slider slider in sceneSliders ) {
+            if( slider.gameObject.name == "FireRateSelector" ) {
+                fireRateSelector = slider;
+            } else if( slider.gameObject.name == "SpawningBar" ) {
+                spawningBar = slider;
+            } else if( slider.gameObject.name == "MaxSpawnSelector" ) {
+                maxSpawnSelector = slider;
+            }
+        }
+    }
+    private void Start( ) {
+        
 
         fireRateSelector.maxValue = 1f;
         fireRateSelector.minValue = 0.001f;
@@ -47,7 +65,7 @@ public class EggSpawner : MonoBehaviour {
         _maxEggs = maxSpawnSelector.value;
 
         textMesh.text = "Number of Eggs: " + _eggCount;
-        fireRateText.text = ("Max Eggs: " + _maxEggs);
+        fireRateText.text = ( "Max Eggs: " + _maxEggs );
 
         spawningBar.value = 1.1f - ( _timeSinceLastEggSpawned / _cooldown );
         _timeSinceLastEggSpawned += Time.deltaTime;

@@ -4984,13 +4984,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 905d70a7c8924ea45859a4e894faf1d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eggPrefab: {fileID: 8691275113126348353, guid: ba3230b44897c5a498e87b9ad5ca716b,
-    type: 3}
-  textMesh: {fileID: 1936538730}
-  fireRateText: {fileID: 1601233359}
-  fireRateSelector: {fileID: 302840617}
-  spawningBar: {fileID: 2122531588}
-  maxSpawnSelector: {fileID: 1231572583}
+  eggPrefab: {fileID: 0}
+  textMesh: {fileID: 0}
+  fireRateText: {fileID: 0}
+  fireRateSelector: {fileID: 0}
+  spawningBar: {fileID: 0}
+  maxSpawnSelector: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -6582,7 +6581,7 @@ PrefabInstance:
         type: 3}
       propertyPath: eggSpawner
       value: 
-      objectReference: {fileID: 329890837}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fd7fd85fe3d5b94f88560dfe66722cf, type: 3}
 --- !u!1001 &7501515731269130312
@@ -6592,39 +6591,32 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5878043695193380380, guid: 0c127bcb8c885e94fb0c8f7dbe2677c3,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: textMesh
       value: 
       objectReference: {fileID: 1936538730}
-    - target: {fileID: 5878043695193380380, guid: 0c127bcb8c885e94fb0c8f7dbe2677c3,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: slider
       value: 
       objectReference: {fileID: 302840617}
-    - target: {fileID: 5878043695193380380, guid: 0c127bcb8c885e94fb0c8f7dbe2677c3,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: spawningBar
       value: 
       objectReference: {fileID: 2122531588}
-    - target: {fileID: 5878043695193380380, guid: 0c127bcb8c885e94fb0c8f7dbe2677c3,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: eggPrefab
       value: 
       objectReference: {fileID: 8691275113126348353, guid: ba3230b44897c5a498e87b9ad5ca716b,
         type: 3}
-    - target: {fileID: 5878043695193380380, guid: 0c127bcb8c885e94fb0c8f7dbe2677c3,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: maxSpawnSelector
       value: 
       objectReference: {fileID: 1231572583}
-    - target: {fileID: 5878043695193380380, guid: 0c127bcb8c885e94fb0c8f7dbe2677c3,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: fireRateSelector
       value: 
       objectReference: {fileID: 302840617}
-    - target: {fileID: 5878043695193380380, guid: 0c127bcb8c885e94fb0c8f7dbe2677c3,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: fireRateText
       value: 
       objectReference: {fileID: 1601233359}
@@ -6688,6 +6680,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5878043695193380380, guid: 0c127bcb8c885e94fb0c8f7dbe2677c3, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c127bcb8c885e94fb0c8f7dbe2677c3, type: 3}

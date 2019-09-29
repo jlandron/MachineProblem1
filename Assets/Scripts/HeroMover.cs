@@ -10,7 +10,7 @@ public class HeroMover : MonoBehaviour {
     [SerializeField]
     private float rotationTime = 2f;
     [SerializeField]
-    private EggSpawner eggSpawner;
+    private EggSpawner eggSpawner = null;
 
     private float _rotationSpeed;
     private float _speed;
@@ -23,11 +23,14 @@ public class HeroMover : MonoBehaviour {
     private float _multipleBounceDelay = 0.001f;
     private float _timeSinceLastBouce = 0f;
 
-
+    private void Awake( ) {
+        eggSpawner = FindObjectOfType<EggSpawner>( );
+    }
     // Start is called before the first frame update
     void Start( ) {
         transform.position = new Vector3( 0, 0, 10 );
         transform.rotation = new Quaternion( 0, 0, 0, 0 );
+
         _speed = startSpeed;
         _screenBounds = Camera.main.GetWorldBounds( );
         _rotationSpeed = rotationDegrees / rotationTime;
