@@ -15,13 +15,6 @@ public class HeroMover : MonoBehaviour {
     private float _rotationSpeed;
     private float _speed;
     private Bounds _screenBounds;
-    private float _minX;
-    private float _maxX;
-    private float _minY;
-    private float _maxY;
-
-    private float _multipleBounceDelay = 0.001f;
-    private float _timeSinceLastBouce = 0f;
 
     // Start is called before the first frame update
     void Start( ) {
@@ -31,13 +24,7 @@ public class HeroMover : MonoBehaviour {
         transform.rotation = new Quaternion( 0, 0, 0, 0 );
 
         _speed = startSpeed;
-        _screenBounds = Camera.main.GetWorldBounds( );
         _rotationSpeed = rotationDegrees / rotationTime;
-
-        _minX = -( _screenBounds.extents.x );
-        _maxX = _screenBounds.extents.x;
-        _minY = -( _screenBounds.extents.y );
-        _maxY = _screenBounds.extents.y;
     }
     // Update is called once per frame
     void Update( ) {
@@ -45,25 +32,7 @@ public class HeroMover : MonoBehaviour {
         GetKeyboardInput( );
         GetMouseInput( );
     }
-    private void LateUpdate( ) {
-        BouceOffWalls( );
-    }
-    private void BouceOffWalls( ) {
-        _timeSinceLastBouce += Time.deltaTime;
-        if( _timeSinceLastBouce > _multipleBounceDelay ) {
-            if( transform.position.x >= _maxX || transform.position.x <= _minX ) {
-                transform.up = new Vector3( -transform.up.x,
-                                           transform.up.y,
-                                           transform.up.z );
-            }
-            if( transform.position.y >= _maxY || transform.position.y <= _minY ) {
-                transform.up = new Vector3( transform.up.x,
-                                           -transform.up.y,
-                                           transform.up.z );
-            }
-            _timeSinceLastBouce = 0f;
-        }
-    }
+    
     private void MoveForward( ) {
         transform.position += _speed * transform.up * Time.deltaTime;
     }
